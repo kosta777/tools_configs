@@ -114,11 +114,14 @@ fi
 # sources /etc/bash.bashrc).
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
+    ./usr/share/bash-completion/bash_completion
   elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
+    ./etc/bash_completion
   fi
 fi
-. "$HOME/.cargo/env"
 export PATH="/home/kole/projects/flutter/bin:/home/kole/.local/bin:$PATH"
 export PATH="$PATH":"$HOME/.pub-cache/bin"
+export PATH=/opt/homebrew/bin:$PATH
+
+set -o vi
+. "$HOME/.cargo/env"
