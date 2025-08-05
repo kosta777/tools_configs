@@ -4,8 +4,7 @@
 
 # If not running interactively, don't do anything
 case $- in
-    *i*) ;;
-      *) return;;
+    *i*) ;; *) return;;
 esac
 
 # don't put duplicate lines or lines starting with space in the history.
@@ -57,15 +56,12 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    if [ -z "$TMUX" ]; then
-        PS1='\[\e[38;5;219;2;3m\][\[\e[38;5;206m\]\A\[\e[38;5;219m\]]\[\e[0m\] \[\e[38;5;70m\]\u@\h\[\e[0m\]:\[\e[38;5;39m\]\w\[\e[0m\]\\$ '
-    else
-        PS1='#\[\e[38;5;219m\][\[\e[38;5;206m\]\A\[\e[0m\]] \[\e[38;5;70m\]\u\[\e[38;5;70m\]@\[\e[38;5;70m\]\h\[\e[0m\]:\[\e[38;5;39m\]\w\[\e[0m\]\\$ '
-    fi
+    PS1='#\[\e[38;5;219m\][\[\e[38;5;206m\]\A\[\e[0m\]] \[\e[38;5;70m\]\u\[\e[38;5;70m\]@\[\e[38;5;70m\]\h\[\e[0m\]:\[\e[38;5;39m\]\w\[\e[0m\]\\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
-unset color_prompt force_color_prompt
+
+unset color_prompt force_color_prompt;
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
@@ -124,4 +120,5 @@ export PATH="$PATH":"$HOME/.pub-cache/bin"
 export PATH=/opt/homebrew/bin:$PATH
 
 set -o vi
-. "$HOME/.cargo/env"
+
+alias vim='nvim'
